@@ -33,7 +33,10 @@ $(window).load(function(){
             var repository = $("input#repository").val();
             var travis_url = "https://api.travis-ci.com/repos/" + repository + "/key";
             log("Requesting Travis public key from " + travis_url);
-            $.get(travis_url, function(data){
+            $.get({
+                    url: travis_url, 
+                    headers: {'Accept': 'application/vnd.travis-ci.2.1+json'}
+                }, function(data){
                 var public_key = data["key"];
                 log("Public key of " + repository + ":");
                 log(public_key)
