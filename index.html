@@ -26,7 +26,7 @@ function log(message)
     $("#log").append($("<p></p>").text(message));
 }
 
-$(window).load(function(){
+$(window).on("load", function(){
     $(function() {
         $("#encrypt").click(function() {
             $("#log").empty();
